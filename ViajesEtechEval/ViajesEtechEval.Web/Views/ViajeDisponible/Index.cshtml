@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ViajesEtechEval.Web.Models.Entities.ViajeDisponible>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CodViaje)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NroPlazas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LugarDestino)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LugarOrigen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodViaje)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NroPlazas)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LugarDestino)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LugarOrigen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.CodViaje }) |
+                @Html.ActionLink("Details", "Details", new { id=item.CodViaje }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.CodViaje })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
